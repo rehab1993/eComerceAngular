@@ -1,0 +1,40 @@
+<div class="container py-5">
+    <h2 class="text-main fw-bold text-center">All Categories</h2>
+    <div class="row g-4">
+        <!-- <div class="col-md-3 border rounded-2 shadow " *ngFor="let ctgry of categoryList " (click)=" getSpecificCtgry(ctgry._id)" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+          <div class="col-md-3 border rounded-2 shadow " *ngFor="let ctgry of categoryList " (click)=" getSubCategories(ctgry._id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div>
+                <img [src]="ctgry.image" alt="" class="w-100 cat-img"> 
+                <h5 class="text-center text-main">{{ctgry.name}}</h5>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        
+          <button type="button" class="btn-close bg-main" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-main text-center">
+         <div class="row">
+          <div class="col-md-4" *ngFor="let ctgry of subCtgry ">
+            <div>
+              <h5 class=" shadow">{{ctgry.name}}</h5>
+            </div>
+          </div>
+         </div>
+
+        <h4></h4>
+           
+        </div>
+     
+      </div>
+    </div>
+  </div>

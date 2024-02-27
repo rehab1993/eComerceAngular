@@ -1,0 +1,99 @@
+
+<!-- <section class="py-5 text-main">
+    <h2 class="fw-bolder  text-center my-3">User Orders</h2>
+
+<div class="table-responsive">
+    
+
+  
+    <table class="table table-primary" >
+        
+    
+        <thead>
+            <tr>
+                <th scope="col">product-img</th>
+                <th scope="col">product title</th>
+                <th scope="col">product price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="" *ngFor="let order of innerOrders">
+                <td scope="row"><img [src]="order.product.imageCover" alt="" class="order-img"></td>
+                <td> <h4>{{order.product.title}}</h4></td>
+                <td><h4>{{order.price}}</h4></td>
+            </tr>
+         
+        </tbody>
+    </table>
+  
+
+
+</div>
+</section> -->
+
+
+
+<!-- <div class="container py-5 bg-main">
+    <div class="row">
+        <div class="col-md-10">
+            <div *ngFor="let order of ordersList?.cartItems " class="row">
+           
+                <div class="col-md-2"><img [src]="order.product.imageCover" alt="" class="order-img"></div>
+                <div class="col-md-10"></div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <ng-container *ngFor="let order of ordersList">
+
+    <div *ngFor="let item of order.cartItems" class="row shadow py-3">
+        <div class="col-md-2"><img [src]="item?.product?.imageCover" alt="" class="order-img"></div>
+        <div class="col-md-8">
+             <h4>{{item?.product?.title}}</h4>
+            <h4>{{item.price}}</h4>
+
+        </div>
+
+    </div>
+
+</ng-container> -->
+<section> 
+    <h2 class="fw-bolder text-main text-center my-3">User Orders</h2>
+<ng-container *ngFor="let order of ordersList">
+
+   
+
+    <div class="table-responsive">
+        
+    
+      
+        <table class="table table-primary" >
+            
+        
+            <thead>
+                <tr>
+                    <th scope="col">product-img</th>
+                    <th scope="col">product title</th>
+                    <th scope="col">product price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="" *ngFor="let item of order.cartItems">
+                    <td scope="row"><img [src]="item?.product?.imageCover" alt="" class="order-img"></td>
+                    <td> <h4>{{item?.product?.title}}</h4></td>
+                    <td><h4>{{item?.price}}</h4></td>
+                </tr>
+             
+            </tbody>
+        </table>
+      
+    
+    
+    </div>
+
+
+
+
+</ng-container>
+</section>

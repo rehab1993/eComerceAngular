@@ -1,0 +1,84 @@
+<section>
+ <div class="container my-5">
+    <h1 class="text-main">Register Form</h1>
+
+    <form action="" [formGroup]="registerForm" (ngSubmit)="registerSubmit(registerForm)">
+        <div class="row gy-4">
+            <div class="col-md-8 m-auto bg-light shadow p-5 my-5">
+                <div class="col-md-12">
+                    <label for="user-name" class="fw-bold">Name</label>
+                    <input formControlName="name" type="text" id="user-name" class="form-control">
+                    <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched">
+                        <p class="text-danger" *ngIf="registerForm.get('name')?.getError('required')"> this required input</p>
+                        <p class="text-danger" *ngIf="registerForm.get('name')?.getError('minlength')"> min length is 3</p>
+                        <p class="text-danger" *ngIf="registerForm.get('name')?.getError('maxlength')"> max length is 10</p>
+                    </div>
+    
+                </div>
+                <div class="col-md-12">
+                    <label for="user-email" class="fw-bold">Email</label>
+                    <input formControlName="email" type="email" id="user-email" class="form-control">
+                    <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                        <p class="text-danger" *ngIf="registerForm.get('emil')?.getError('required')"> this required input</p>
+                        <p class="text-danger" *ngIf="registerForm.get('email')?.getError('email')">enter valid email</p>
+                        
+                    </div>
+    
+                </div>
+                <div class="col-md-12">
+                    <label for="user-password" class="fw-bold">Password</label>
+                    <input formControlName="password" type="password" id="user-password" class="form-control">
+                    <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+                        <p class="text-danger" *ngIf="registerForm.get('password')?.getError('required')"> this required input</p>
+                        <p class="text-danger" *ngIf="registerForm.get('password')?.getError('pattern')">enter valid password</p>
+                        
+                    </div>
+    
+                </div>
+                <div class="col-md-12">
+                    <label for="user-repassword" class="fw-bold">Repassword</label>
+                    <input formControlName="rePassword" type="password" id="user-repassword" class="form-control">
+
+                    <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched">
+                        <p class="text-danger" *ngIf="registerForm.get('rePassword')?.getError('required')"> this required input</p>
+                        <p class="text-danger" *ngIf="registerForm.get('rePassword')?.getError('missmatch')">confirm password is incorrect</p>
+                        
+                    </div>
+    
+                </div>
+                <div class="col-md-12">
+                    <label for="phone" class="fw-bold">Phone</label>
+                    <input formControlName="phone" type="phone" id="phone" class="form-control">
+                    <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+                        <p class="text-danger" *ngIf="registerForm.get('phone')?.getError('required')"> this required input</p>
+                        <p class="text-danger" *ngIf="registerForm.get('phone')?.getError('pattern')">enter valid phone</p>
+                        
+                    </div>
+                    <p class="alert  alert-danger mt-4" *ngIf="msgError">{{msgError}}</p>
+    
+                </div>
+    
+                <div>
+                    <button class="btn bg-success text-light float-end my-3"  [disabled]="registerForm.invalid"><i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>Register</button>
+                </div>
+
+                <div class="mt-5">
+                    <p class="text-muted"> I have an account <a routerLink="/signin" class="text-success">Login</a></p>
+        
+                </div>
+
+              
+              
+            </div> 
+        </div>
+  
+    </form>
+   
+
+ </div>
+</section>
+
+
+
+
+

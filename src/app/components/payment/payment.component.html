@@ -1,0 +1,39 @@
+<div class="container my-5">
+<form [formGroup]="checkout" (ngSubmit)=" payment(checkout)">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="layer-cart bg-light p-5">
+                <div class="my-2">
+                    <label for="">Details</label>
+                    <input formControlName="details" type="text" class="form-control">
+                    <div *ngIf="checkout.get('details')?.errors && checkout.get('details')?.touched">
+                        <p class="text-danger" *ngIf="checkout.get('details')?.getError('required')"> this required input</p>
+                      
+                    </div>
+                </div>
+                <div class="my-2">
+                    <label for="">Phone</label>
+                    <input formControlName="phone" type="tel" class="form-control">
+                    <div *ngIf="checkout.get('phone')?.errors && checkout.get('phone')?.touched">
+                        <p class="text-danger" *ngIf="checkout.get('phone')?.getError('required')"> this required input</p>
+                        <p class="text-danger" *ngIf="checkout.get('phone')?.getError('pattern')">enter valid phone</p>
+                        
+                    </div>
+                </div>
+                <div class="my-2">
+                    <label for="">City</label>
+                    <input formControlName="city" type="text" class="form-control">
+                    <div *ngIf="checkout.get('city')?.errors && checkout.get('city')?.touched">
+                        <p class="text-danger" *ngIf="checkout.get('city')?.getError('required')"> this required input</p>
+                      
+                    </div>
+                </div>
+                <div>
+                    <button [disabled]="checkout.invalid" class="btn bg-success text-light">Pay</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+</div>

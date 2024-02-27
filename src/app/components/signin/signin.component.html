@@ -1,0 +1,57 @@
+<section>
+    <div class="container my-5">
+       <h1 class="text-main">Login Form</h1>
+   
+       <form action="" [formGroup]="loginForm" (ngSubmit)="loginSubmit(loginForm)">
+           <div class="row gy-4">
+               <div class="col-md-8 m-auto bg-light shadow p-5 my-5">
+                 
+                   <div class="col-md-12">
+                       <label for="user-email" class="fw-bold">Email</label>
+                       <input formControlName="email" type="email" id="user-email" class="form-control">
+                       <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+                           <p class="text-danger" *ngIf="loginForm.get('emil')?.getError('required')"> this required input</p>
+                           <p class="text-danger" *ngIf="loginForm.get('email')?.getError('email')">enter valid email</p>
+                           
+                       </div>
+       
+                   </div>
+                   <div class="col-md-12">
+                       <label for="user-password" class="fw-bold">Password</label>
+                       <input formControlName="password" type="password" id="user-password" class="form-control">
+                       <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+                           <p class="text-danger" *ngIf="loginForm.get('password')?.getError('required')"> this required input</p>
+                           <p class="text-danger" *ngIf="loginForm.get('password')?.getError('pattern')">enter valid password</p>
+                           
+                       </div>
+       
+                   </div>
+                 
+                  
+       
+                   <div>
+                       <button class="btn bg-success text-light float-end my-3"  [disabled]="loginForm.invalid"><i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>Login</button>
+                       <a routerLink="/forgetpassword" class="text-main ">Reset Password ...</a>
+                   </div>
+
+
+
+                   <div class="mt-5">
+                    <p class="text-muted"> I don't have an account <a routerLink="/signup" class="text-success">sign up</a></p>
+        
+                </div>
+                 
+               </div>
+            
+           </div>
+       </form>
+      
+   
+    </div>
+   </section>
+   
+   
+   
+   
+   
+   

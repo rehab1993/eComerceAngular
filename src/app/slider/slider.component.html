@@ -1,0 +1,13 @@
+<h2 class="my-5 text-main fw-bolder text-center">Shop Popular Categories</h2>
+<!-- <div>Some tags before</div> -->
+<owl-carousel-o [options]="customOptions">
+
+  <ng-container *ngFor="let slide of categriesArrray">
+    <ng-template carouselSlide>
+      <img [src]="slide.image"  [title]="slide.name">
+      <h3 class="fw-bold">{{slide.name}}</h3>
+    </ng-template>
+  </ng-container>
+
+</owl-carousel-o>
+<!-- <div>Some tags after</div> -->

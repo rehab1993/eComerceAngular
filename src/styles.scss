@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&family=Open+Sans:wght@300&family=Pacifico&display=swap');
+
+  $bgColor:#0aad0a;
+  $lightBgColor:#f0f3f2;
+  $fontFamily:'Encode Sans Expanded';
+  $ratinColor:#ffc908;
+
+  body{
+    font-family: $fontFamily;
+  }
+.rating-color{
+    color: $ratinColor;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.text-main{
+  color: #0aad0a;
+}
+.bg-main{
+  background-color: $bgColor;
+}
+.rating-color{
+ color: #ffc908;
+}
+.product:hover{
+  border: solid 2px #0aad0a;
+  box-shadow: 2px 2px #4a4b4b;
+  cursor: pointer;
+}
+.product .btn{
+  transform: translateY(100%);
+  display: none;
+
+}
+.product:hover .btn{
+  display: block;
+  transform: translateY(0%);
+}
+.bg-main{
+  background-color: #0aad0a;
+}
