@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit{
   allCategories:Category[]=[];
   searchVlue:string='';
   heartIsClicked:boolean = false;
-  x:any
+  x:any;
+  wishListItems:any;
 
 
  
@@ -50,31 +51,44 @@ export class HomeComponent implements OnInit{
   })
  }
 
+
  addToWishlist(id:string){
 this.x=  this._WishlistService.wishLIST.filter((product:any)=>{ return product.id==id})
 console.log(this.x)
   if(this.x.length==0){
 
-  this._WishlistService.addProductToWishlist(id).subscribe({
-    next:(response)=>{console.log(response)
-     
-      this.toastr.success(response.message); 
-
-  }
+  this._WishlistService.addProductToWishlist(id).subscribe((data:any)=>{
+    this.wishListItems=data.data;
+    console.log(this.wishListItems);
+    this.toastr.success(data.message); 
+    // document.getElementById('heart-icon')?.classList.add('text-danger')
   })
-  }else if(this.x.length>0){
-    this.toastr.success('product alredy exist in wishlist :)')
-    this._WishlistService.deleteProductFromWishlist(id);
-  this._WishlistService.displayWishlist()}
  
 
+ }
+
+  else {
+    this.toastr.success('product alredy exist in wishlist :)')
+    this._WishlistService.deleteProductFromWishlist(id).subscribe((data)=>{console.log(data)});
+  this._WishlistService.displayWishlist()}
 
 }
+
+deleteFromWishlist(id:string){
+  this._WishlistService.deleteProductFromWishlist(id).subscribe((data)=>{
+    console.log(data)
+  })
+}
+
 changeHeart(eventInfo:any){
   console.log(eventInfo.target)
- let x = eventInfo.target;
- x.classList.add('text-danger');
+  let heart = eventInfo.target;
+  heart?.classList.add('text-danger')
+}
 
+
+isInWishlist(id:string):boolean{
+  return  this._WishlistService.wishLIST?.filter((product:any)=>{ return product.id==id}).length==0
 }
 
 }

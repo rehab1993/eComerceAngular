@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WishlistService } from 'src/app/services/wishlist.service';
 import { CartService } from 'src/app/shared/cart.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -8,7 +9,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./nav-blank.component.scss']
 })
 export class NavBlankComponent implements OnInit{
-  cartNumber!:number
+  cartNumber!:number;
+ 
   constructor(private _AuthService:AuthService, private _CartService:CartService){}
   userName:any
   logOut():void{

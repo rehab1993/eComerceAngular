@@ -58,7 +58,7 @@
     </div>
 
 </ng-container> -->
-<section> 
+<section class="w-75 mx-auto"> 
     <h2 class="fw-bolder text-main text-center my-3">User Orders</h2>
 <ng-container *ngFor="let order of ordersList">
 
@@ -71,11 +71,11 @@
         <table class="table table-primary" >
             
         
-            <thead>
-                <tr>
-                    <th scope="col">product-img</th>
-                    <th scope="col">product title</th>
-                    <th scope="col">product price</th>
+            <thead >
+                <tr class="text-main">
+                    <th scope="col" class="text-main"><span class="text-warning">product-img</span></th>
+                    <th scope="col"><span class="text-warning">product title</span></th>
+                    <th scope="col"><span class="text-warning">product price</span></th>
                 </tr>
             </thead>
             <tbody>
@@ -84,6 +84,13 @@
                     <td> <h4>{{item?.product?.title}}</h4></td>
                     <td><h4>{{item?.price}}</h4></td>
                 </tr>
+                <tr>
+                    <td colspan="2"><span class="text-danger">time of order is  :</span>{{order. createdAt.slice(0,10)}}</td>
+                    <td ><span class="text-danger">Total Price is   :</span>{{order.totalOrderPrice}}</td>        
+                </tr>
+               
+                   
+                    
              
             </tbody>
         </table>

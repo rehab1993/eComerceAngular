@@ -14,7 +14,9 @@ export class WishlistService {
   constructor(private _HttpClient:HttpClient) { 
     this.displayWishlist().subscribe({
     next:(res)=>{console.log(res)
-    this.wishLIST=res.data}  
+    this.wishLIST=res.data;
+ 
+}  
     })
   }
 
